@@ -1,15 +1,13 @@
 'use strict'
+const Tarefa = use('App/Models/Tarefa')
 
 class TarefaController {
-    index({view}) {
-        const tarefas = [
-            {title: 'Tarefa Um', body: 'Esta é a primeira tarefa'},
-            {title: 'Tarefa Dois', body: 'Esta é a segunda tarefa'},
-        ]
+    async index({view}) {
+        const tarefas = await Tarefa.all()
         
         return view.render('tarefas', {
             title: 'Suas Tarefas',
-            tarefas: tarefas
+            tarefas: tarefas.toJSON()
         })
     }
 }
