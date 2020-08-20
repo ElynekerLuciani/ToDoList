@@ -17,8 +17,11 @@
 const Route = use('Route')
 
 Route.on('/').render('home')
-Route.get('/teste', ()=> 'Hello World!')
-Route.get('/teste/:id', function({ params }){
-    return `Este é um id ${params.id}`;
-})
-Route.get('/tarefa', 'TarefaController.index')
+Route.on('/tarefas').render('tarefas')
+Route.on('/add').render('add')
+
+// Route.get('/teste', ()=> 'Hello World!')
+// Route.get('/teste/:id', function({ params }){
+//     return `Este é um id ${params.id}`;
+// })
+// Route.get('/tarefa', 'TarefaController.index')
