@@ -7,7 +7,7 @@ class TarefaController {
             {title: 'Tarefa Dois', body: 'Esta é a segunda tarefa'},
         ]
         
-        return view.render('tarefa', {
+        return view.render('tarefas', {
             title: 'Suas Tarefas',
             tarefas: tarefas
         })

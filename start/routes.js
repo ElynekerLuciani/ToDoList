@@ -17,7 +17,7 @@
 const Route = use('Route')
 
 Route.on('/').render('home')
-Route.on('/tarefas').render('tarefas')
+Route.get('/tarefas', 'TarefaController.index')
 Route.on('/add').render('add')
 
 // Route.get('/teste', ()=> 'Hello World!')
