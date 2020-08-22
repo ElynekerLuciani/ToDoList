@@ -1,9 +1,11 @@
 @layout('main')
 @section('content')
 <h1>{{ title }}</h1>
+@if(old('notification'))
 <div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
+    {{ old('notification')}}
 </div>
+@endif
 
 <div class="list-group">
    @each(item in tarefas)

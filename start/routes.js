@@ -19,6 +19,7 @@ const Route = use('Route')
 Route.on('/').render('home')
 Route.get('/tarefas', 'TarefaController.index')
 Route.on('/add').render('add')
+Route.post('/add', 'TarefaController.store')
 
 // Route.get('/teste', ()=> 'Hello World!')
 // Route.get('/teste/:id', function({ params }){

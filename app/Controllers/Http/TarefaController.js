@@ -10,6 +10,19 @@ class TarefaController {
             tarefas: tarefas.toJSON()
         })
     }
+
+    async store({ request, response, session }) {
+        const tareta = new Tarefa()
+
+        tareta.title = request.input('title')
+        tareta.body = request.input('bodt')
+
+        await tareta.save()
+        session.flash({ notification: 'Tarefa Adicionada'})
+
+        return response.redirect('/tarefas')
+    }
+
 }
 
 module.exports = TarefaController
