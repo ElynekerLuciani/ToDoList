@@ -1,5 +1,6 @@
 'use strict'
 const Tarefa = use('App/Models/Tarefa')
+const { validateAll } = use('Validator')
 
 class TarefaController {
     async index({view}) {
@@ -12,6 +13,21 @@ class TarefaController {
     }
 
     async store({ request, response, session }) {
+        const mensagem = {
+            'title.required': 'Required',
+            'title.min': 'min 3'
+        }
+
+        const valicacao =  await validateAll(request.all(),{
+            title: 'required|min:5|max:140',
+            body: 'required|mim:10'
+        },mensagem)
+
+        if(valicacao.fails()){
+            session.withErrors(valicacao.messages()).flashAll()
+            return response.redirect('back')
+        }
+
         const tareta = new Tarefa()
 
         tareta.title = request.input('title')
