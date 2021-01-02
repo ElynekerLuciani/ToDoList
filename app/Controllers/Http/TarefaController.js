@@ -39,6 +39,13 @@ class TarefaController {
         return response.redirect('/tarefas')
     }
 
+    async detail({ params, view }) {
+        const tarefa = await Tarefa.find(params.id)
+        return view.render('detail', {
+            tarefa: tarefa
+        })
+    }
+
 }
 
 module.exports = TarefaController

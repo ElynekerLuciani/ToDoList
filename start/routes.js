@@ -20,6 +20,9 @@ Route.on('/').render('home')
 Route.get('/tarefas', 'TarefaController.index')
 Route.on('/add').render('add')
 Route.post('/add', 'TarefaController.store')
+Route.get('/tarefas/:id', 'TarefaController.detail')
+
+
 
 // Route.get('/teste', ()=> 'Hello World!')
 // Route.get('/teste/:id', function({ params }){
